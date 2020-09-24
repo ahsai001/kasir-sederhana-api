@@ -23,10 +23,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/login', 'App\Http\Controllers\Auth\LoginController@login_api');
+Route::post('/login', [App\Http\Controllers\Auth\LoginController::class,'login_api']);
 
 Route::middleware(['auth:api'])->group(function(){
-    Route::post('/logout', 'App\Http\Controllers\Auth\LoginController@logout_api');
+    Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class,'logout_api']);
 
     Route::apiResource('categories', CategoryController::class);
     Route::apiResource('menus', MenuController::class);

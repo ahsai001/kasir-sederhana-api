@@ -39,7 +39,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware('guest')->except(['logout', 'logout_api']);
     }
 
 
@@ -75,6 +75,9 @@ class LoginController extends Controller
             $user->save();
         }
 
-        return response()->json(['data' => 'User logged out.'], 200);
+        return response()->json([
+            'status'=>1,
+            'message'=> 'sukses logout'
+        ]);
     }
 }
