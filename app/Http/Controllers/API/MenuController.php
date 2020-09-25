@@ -52,7 +52,7 @@ class MenuController extends Controller
         return response()->json([
             'status'=>1,
             'message'=>'adding menu success',
-            'data'=> null
+            'data'=> $menu
         ]);
     }
 

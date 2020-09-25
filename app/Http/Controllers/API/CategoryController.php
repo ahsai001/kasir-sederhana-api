@@ -38,7 +38,7 @@ class CategoryController extends Controller
         return response()->json([
             'status'=>1,
             'message'=>'adding category success',
-            'data'=> null
+            'data'=> $category
         ]);
     }
 

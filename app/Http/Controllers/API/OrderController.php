@@ -42,6 +42,8 @@ class OrderController extends Controller
             'qty' => 'required|array',
         ]);
 
+        $order = null;
+
         DB::transaction(function () use ($request) {
             $order = Order::create($request->all() + ['id_user' => Auth::id()]);
 
@@ -54,12 +56,13 @@ class OrderController extends Controller
             }
         });
 
-
         return response()->json([
             'status'=>1,
             'message'=>'adding order success',
-            'data'=> null
+            'data'=> $order
         ]);
+
+
     }
 
     /**
