@@ -18,7 +18,7 @@ class MenuController extends Controller
         return response()->json([
             'status'=>1,
             'message'=>'getting menu list success',
-            'data'=> Menu::all()->toArray()
+            'data'=> Menu::with('category')->get()->toArray()
         ]);
     }
 
